@@ -1,5 +1,7 @@
-use serde::{de::DeserializeOwned, Serialize};
+use reqwest;
+use serde::{Serialize, de::DeserializeOwned};
 use super::api_target::ApiTarget;
+use log::trace;
 
 pub async fn request<T, U>(host : &str, api_target : ApiTarget, param : &T) -> Result<U, Box<dyn std::error::Error>>
 where
@@ -8,7 +10,7 @@ where
 {
     let client = reqwest::Client::new();
 
-    let url = format!("https://{}/api/{}", host, api_target.to_string());
+    let url = format!("{}/api/{}", host, ApiTarget::to_string(&api_target));
     let res = client.post(url)
         .json(&param)
         .send()

@@ -1,13 +1,16 @@
 pub enum ApiTarget {
     I,
-    USER_SHOW,
+    UsersShow,
+    AdminShowModerationLogs,
 }
 
 impl ApiTarget {
-    pub fn to_string(&self) -> String {
-        match self {
+    pub fn to_string(t : &ApiTarget) -> String {
+        match &t {
             ApiTarget::I => String::from("i"),
-            ApiTarget::USER_SHOW => String::from("user/show"),
+            ApiTarget::UsersShow => String::from("users/show"),
+            ApiTarget::AdminShowModerationLogs => String::from("admin/show-moderation-logs"),
         }
     }
+
 }
