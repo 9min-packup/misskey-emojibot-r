@@ -2,3 +2,4 @@ mod show_moderation_logs;
 pub use show_moderation_logs::show_moderation_logs;
 pub use show_moderation_logs::show_moderation_logs_by_since_id;
 pub use show_moderation_logs::show_moderation_logs_by_until_id;
+pub use show_moderation_logs::show_moderation_logs_by_until_id_since_id;

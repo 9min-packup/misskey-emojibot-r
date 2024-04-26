@@ -1,6 +1,6 @@
 use serde::Serialize;
-use crate::misskey_api::endpoint::{request, ApiTarget};
-use crate::misskey_api::model::User;
+use super::super::{request, ApiTarget};
+use super::super::super::model::User;
 
 #[derive(Debug, Serialize)]
 struct Param {

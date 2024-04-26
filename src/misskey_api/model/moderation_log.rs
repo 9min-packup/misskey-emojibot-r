@@ -1,7 +1,7 @@
 use std::f32::consts::E;
 
 use serde::{Deserialize, Serialize};
-use crate::misskey_api::model::{User, CustmoEmoji, AvatorDecoration};
+use super::{User, CustmoEmoji, AvatorDecoration};
 
 #[derive(Debug, Serialize, Deserialize)]
 pub struct ModerationLog {

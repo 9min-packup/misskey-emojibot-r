@@ -3,7 +3,7 @@ use log::Level;
 use env_logger::Builder;
 use std::io::Write;
 
-pub fn init () {
+pub fn init_logger() {
     Builder::from_default_env()
     .format(|buf, record| {
         let color = match record.level() {
