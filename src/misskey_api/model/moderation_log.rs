@@ -1,8 +1,7 @@
-use std::f32::consts::E;
-
 use serde::{Deserialize, Serialize};
 use super::{User, CustmoEmoji, AvatorDecoration};
 
+#[allow(non_snake_case)]
 #[derive(Debug, Serialize, Deserialize)]
 pub struct ModerationLog {
     pub id : String,
@@ -13,6 +12,7 @@ pub struct ModerationLog {
     pub user : User,
 }
 
+#[allow(non_snake_case)]
 #[derive(Debug, Serialize, Deserialize)]
 pub struct ModerationLogInfo {
     pub emoji : Option<CustmoEmoji>,
@@ -21,6 +21,7 @@ pub struct ModerationLogInfo {
     pub after : Option<ModerationLogInfoForUpdate>,
 }
 
+#[allow(non_snake_case)]
 #[derive(Debug, Serialize, Deserialize)]
 pub struct ModerationLogInfoForUpdate {
     pub id : Option<String>,
@@ -65,14 +66,17 @@ impl ModerationLogInfoForUpdate {
             Some(x) => x.clone(),
             None => return Err( Box::new(NotCustomEmoji{invalid_field : String::from("name")})),
         };
+        #[allow(non_snake_case)]
         let isSensitive: bool = match &self.isSensitive {
             Some(x) => x.clone(),
             None => return Err( Box::new(NotCustomEmoji{invalid_field : String::from("isSensitive")})),
         };
+        #[allow(non_snake_case)]
         let localOnly: bool = match &self.localOnly {
             Some(x) => x.clone(),
             None => return Err( Box::new(NotCustomEmoji{invalid_field : String::from("localOnly")})),
         };
+        #[allow(non_snake_case)]
         let roleIdsThatCanBeUsedThisEmojiAsReaction: Vec<Option<String>> = match &self.roleIdsThatCanBeUsedThisEmojiAsReaction {
             Some(x) => x.clone(),
             None => return Err( Box::new(NotCustomEmoji{invalid_field : String::from("roleIdsThatCanBeUsedThisEmojiAsReaction")})),
@@ -80,7 +84,9 @@ impl ModerationLogInfoForUpdate {
 
         let category = self.category.clone();
         let host = self.host.clone();
+        #[allow(non_snake_case)]
         let publicUrl = self.publicUrl.clone();
+        #[allow(non_snake_case)]
         let originalUrl = self.originalUrl.clone();
         let license = self.license.clone();
                     
@@ -102,7 +108,7 @@ impl ModerationLogInfoForUpdate {
 
 #[derive(Debug)]
 pub struct NotAvatorDecoration{
-    invalid_field : String,
+    invalid_field: String,
 }
 
 impl std::error::Error for NotAvatorDecoration {}

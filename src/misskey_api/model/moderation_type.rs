@@ -12,6 +12,7 @@ pub enum ModerationType {
 }
 
 impl ModerationType {
+    #[allow(dead_code)]
     pub fn to_string(t : &ModerationType) -> String {
         match &t {
             ModerationType::AddCustomEmoji => String::from("addCustomEmoji"),
@@ -24,7 +25,8 @@ impl ModerationType {
         }
     }
 
-    pub fn from_string(s : &str) -> ModerationType {
+    #[allow(dead_code)]
+    pub fn from_str(s : &str) -> ModerationType {
         match &s {
             &"addCustomEmoji" => ModerationType::AddCustomEmoji,
             &"updateCustomEmoji" => ModerationType::UpdateCustomEmoji,
