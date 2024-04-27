@@ -14,7 +14,7 @@ impl std::error::Error for RequestFailure {}
 
 impl std::fmt::Display for RequestFailure {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        write!(f, "request failue. \nmessage: \n{}", self.message)
+        write!(f, "request failrue. \nmessage: \n{}", self.message)
     }
 }
 
@@ -32,13 +32,13 @@ where
     trace!("{:?}", res_result);
     let res = match res_result {
         Ok(res) => res,
-        Err(e) => return Err( Box::new(RequestFailure{starus_code : None, message : e.to_string()})),
+        Err(e) => return Err(Box::new(RequestFailure{starus_code : None, message : e.to_string()})),
     };
     debug!("status_code {:?}", res.status().as_u16());
     let status_code: u16  = res.status().as_u16();
     match status_code {
         200 => (),
-        _ => return Err( Box::new(RequestFailure{starus_code : Some(status_code), message : res.text().await?})),
+        _ => return Err(Box::new(RequestFailure{starus_code : Some(status_code), message : res.text().await?})),
     }
 
     Ok(res)

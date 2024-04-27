@@ -1,7 +1,7 @@
 use std::env;
 use log::debug;
 use serde::Serialize;
-use crate::util::{get_env, get_string_env};
+use crate::util::env::{get_env, get_string_env};
 use crate::misskey_api::endpoint::{self};
 use crate::misskey_api::model;
 

@@ -1,2 +1,5 @@
 /target
-.env
+/.vscode
+/.env
+config/*
+store/*
