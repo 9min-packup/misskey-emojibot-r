@@ -3,6 +3,7 @@ use serde::{de::DeserializeOwned, Serialize};
 use std::fs::{self, File};
 use std::io::Write;
 
+#[allow(dead_code)]
 pub fn read_toml<T>(path : &str) -> Result<T, Box<dyn std::error::Error>>
 where
     T : DeserializeOwned + Default,
@@ -19,6 +20,7 @@ where
     Ok(toml_struct)
 }
 
+#[allow(dead_code)]
 pub fn write_toml<T>(path : &str, ser : T) -> Result<(), Box<dyn std::error::Error>>
 where
     T : Serialize,

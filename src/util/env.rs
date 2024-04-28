@@ -2,6 +2,7 @@ use std::fmt::Debug;
 
 use std::{env, str::FromStr};
 
+#[allow(dead_code)]
 pub fn get_string_env( key: &str, default: &str) -> String {
     let check_var= env::var(key);
     match check_var {
@@ -10,6 +11,7 @@ pub fn get_string_env( key: &str, default: &str) -> String {
     }
 }
 
+#[allow(dead_code)]
 pub fn get_env<T>( key: &str, default: T) -> T 
 where 
     T : FromStr + Debug,

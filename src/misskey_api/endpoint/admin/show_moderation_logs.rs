@@ -11,6 +11,7 @@ struct Param {
     userId : Option<String>,
 }
 
+#[allow(dead_code)]
 pub async fn show_moderation_logs(host : &str, token : &str, limit : u64, r#type : Option<String>, user_id : Option<String>)-> Result<Vec<ModerationLog>, Box<dyn std::error::Error>> {
     let param: Param = Param
         {
@@ -33,6 +34,7 @@ struct BySinceIdParam {
     sinceId : String,
 }
 
+#[allow(dead_code)]
 pub async fn show_moderation_logs_by_since_id(host : &str, token : &str, limit : u64, r#type : Option<String>, user_id : Option<String>, since_id : &str) -> Result<Vec<ModerationLog>, Box<dyn std::error::Error>> {
     let param: BySinceIdParam = BySinceIdParam
         {
@@ -56,6 +58,7 @@ struct ByUntilIdParam {
     untilId : String,
 }
 
+#[allow(dead_code)]
 pub async fn show_moderation_logs_by_until_id(host : &str, token : &str, limit : u64, r#type : Option<String>, user_id : Option<String>, until_id : &str)-> Result<Vec<ModerationLog>, Box<dyn std::error::Error>> {
     let param: ByUntilIdParam = ByUntilIdParam
         {
@@ -80,6 +83,7 @@ struct BySinceIdUntilIdParam {
     sinceId : String,
 }
 
+#[allow(dead_code)]
 pub async fn show_moderation_logs_by_until_id_since_id(host : &str, token : &str, limit : u64, r#type : Option<String>, user_id : Option<String>, until_id : &str, since_id : &str)-> Result<Vec<ModerationLog>, Box<dyn std::error::Error>> {
     let param: BySinceIdUntilIdParam = BySinceIdUntilIdParam
         {

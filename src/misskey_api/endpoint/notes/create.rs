@@ -15,6 +15,7 @@ struct Param{
     reactionAcceptance : Option<String>,
 }
 
+#[allow(dead_code)]
 pub async fn create
 (
     host : &str,

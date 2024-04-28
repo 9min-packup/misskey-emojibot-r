@@ -1,0 +1,51 @@
+[bot]
+# host : your server url - like this, "https://example.tld"
+host = "https://example.tld"
+# token : your bot's access token
+token = "XXXXXXXXXXXXXXXX"
+# moderation_logs_limit : number of moderation logs that be got at one time (max : 100)
+moderation_logs_limit = 5
+# running_interval_seconds : running interval (seconds)
+running_interval_seconds = 60
+
+[notify]
+# visibility : visibility of notes
+# any of "public" "home" "followers" "specified"
+# "specified" means direct note
+visibility.add ="public"
+visibility.update = "home"
+visibility.delete = "home"
+
+# visible_usernames : when visibility is "specified", emojibot sends a direct note to them
+visible_usernames = []
+
+# use_cw : either false or true
+use_cw.add = false
+use_cw.update = false
+use_cw.delete = false
+
+# local_only : either false or true
+local_only = false
+
+# reaction_acceptance : reaction acceptance setting
+# any of "all" "likeOnly" "likeOnlyForRemote" "nonSensitiveOnly" "nonSensitiveOnlyForLocalLikeOnlyForRemote"
+reaction_acceptance = "all"
+
+# use_mention : either false or true
+# when it is true, emojibot notify who added custom emoji
+use_mention = true
+
+# if you want to customize messages, change following
+[messages]
+emoji_add = "新しい絵文字が追加されました。"
+emoji_add_user = "追加したユーザー"
+emoji_update = "絵文字が更新されました。"
+emoji_update_user = "更新したユーザー"
+emoji_delete = "絵文字が削除されました。"
+emoji_delete_user = "削除したユーザー"
+decoration_add = "新しいアバターデコレーションが追加されました。"
+decoration_add_user = "追加したユーザー"
+decoration_update = "アバターデコレーションが更新されました。"
+decoration_update_user = "更新したユーザー"
+decoration_delete = "アバターデコレーションが削除されました。"
+decoration_delete_user = "削除したユーザー"

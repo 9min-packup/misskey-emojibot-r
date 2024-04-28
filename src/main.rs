@@ -1,11 +1,12 @@
 use dotenv::dotenv;
 use util::logger::init_logger;
-use log::debug;
 
 mod util;
 mod misskey_api;
 mod emojibot;
 
+#[cfg(debug_assertions)]
+use log::debug;
 #[cfg(debug_assertions)]
 use util::env::get_string_env;
 #[cfg(debug_assertions)]
