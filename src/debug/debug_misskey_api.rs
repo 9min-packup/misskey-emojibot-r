@@ -110,7 +110,7 @@ pub async fn debug_notes_create()-> Result<(), Box<dyn std::error::Error>> {
         endpoint::notes::Visibility::from_str(&visibility_string),
         Vec::<String>::new(),
         local_only,
-        endpoint::notes::ReactionAcceptance::ALL,
+        endpoint::notes::ReactionAcceptance::All,
     ).await?;
     debug!{"{:?}", created_note};
 
@@ -121,7 +121,7 @@ pub async fn debug_admin_show_moderation_logs()-> Result<(), Box<dyn std::error:
     debug!{"debug admin_show_moderation_logs"};
     let host: String = get_string_env("DEBUG_MI_HOST", "https://example.tld");
     let token: String = get_string_env("DEBUG_MI_TOKEN", "XXXXXXXXXXXXXXXX");
-    let limit = get_env::<i32>("DEBUG_MI_MODERATION_LOGS_LIMIT", 1);
+    let limit = get_env::<u64>("DEBUG_MI_MODERATION_LOGS_LIMIT", 1);
     let moderation_logs : Vec<model::ModerationLog> = endpoint::admin::show_moderation_logs(&host, &token, limit, None, None).await?;
     debug_check_moderation_logs(&moderation_logs).await?;
 
@@ -132,7 +132,7 @@ pub async fn debug_admin_show_moderation_logs_by_since_id()-> Result<(), Box<dyn
     debug!{"debug admin_show_moderation_logs_by_since_id"};
     let host: String = get_string_env("DEBUG_MI_HOST", "https://example.tld");
     let token: String = get_string_env("DEBUG_MI_TOKEN", "XXXXXXXXXXXXXXXX");
-    let limit = get_env::<i32>("DEBUG_MI_MODERATION_LOGS_LIMIT", 1);
+    let limit = get_env::<u64>("DEBUG_MI_MODERATION_LOGS_LIMIT", 1);
     let since_id: String = get_string_env("DEBUG_MI_MODERATION_LOGS_SINCE_ID", "zzzzzzzzzzzzzzzz");
     let moderation_logs : Vec<model::ModerationLog> = endpoint::admin::show_moderation_logs_by_since_id(&host, &token, limit, None, None,&since_id).await?;
     debug_check_moderation_logs(&moderation_logs).await?;
@@ -145,7 +145,7 @@ pub async fn debug_admin_show_moderation_logs_by_until_id()-> Result<(), Box<dyn
     let host: String = get_string_env("DEBUG_MI_HOST", "https://example.tld");
     let token: String = get_string_env("DEBUG_MI_TOKEN", "XXXXXXXXXXXXXXXX");
     let until_id = get_string_env("DEBUG_MI_MODERATION_LOGS_UNTIL_ID", "0000000000000000");
-    let limit = get_env::<i32>("DEBUG_MI_MODERATION_LOGS_LIMIT", 1);
+    let limit = get_env::<u64>("DEBUG_MI_MODERATION_LOGS_LIMIT", 1);
     let moderation_logs : Vec<model::ModerationLog> = endpoint::admin::show_moderation_logs_by_until_id(&host, &token, limit, None, None, &until_id).await?;
     debug_check_moderation_logs(&moderation_logs).await?;
     
@@ -158,7 +158,7 @@ pub async fn debug_admin_show_moderation_logs_by_until_id_since_id()-> Result<()
     let token: String = get_string_env("DEBUG_MI_TOKEN", "XXXXXXXXXXXXXXXX");
     let since_id: String = get_string_env("DEBUG_MI_MODERATION_LOGS_SINCE_ID", "zzzzzzzzzzzzzzzz");
     let until_id: String = get_string_env("DEBUG_MI_MODERATION_LOGS_UNTIL_ID", "0000000000000000");
-    let limit = get_env::<i32>("DEBUG_MI_MODERATION_LOGS_LIMIT", 1);
+    let limit = get_env::<u64>("DEBUG_MI_MODERATION_LOGS_LIMIT", 1);
     let moderation_logs : Vec<model::ModerationLog> = endpoint::admin::show_moderation_logs_by_until_id_since_id(&host, &token, limit, None, None, &until_id, &since_id).await?;
     debug!{"{:?}", moderation_logs};
 

@@ -1,7 +1,8 @@
-use std::{env, fmt::Debug};
+use std::fmt::Debug;
 use serde::{Deserialize, Serialize};
 use log::debug;
 use crate::util::toml::{read_toml, write_toml};
+use crate::util::env::get_string_env;
 
 #[derive(Debug, Serialize, Deserialize)]
 pub struct Config {
@@ -37,8 +38,7 @@ pub fn debug_toml() {
 }
 
 pub fn debug_read_config() -> Config {
-    let dir : String = env::var("CONFIG_DIR").unwrap();
-    let path = format!("{}/emojibot.toml", dir);
+    let path : String = get_string_env("DEBUG_TOML_READ_FILE", "./config.toml");
 
     let config = read_toml::<Config>(&path).unwrap();
     debug!("{:?}", config);
@@ -47,8 +47,7 @@ pub fn debug_read_config() -> Config {
 }
 
 pub fn debug_write_config(config : Config) {
-    let dir : String = env::var("STORE_DIR").unwrap();
-    let path = format!("{}/store.toml", dir);
+    let path : String = get_string_env("DEBUG_TOML_WRITE_FILE", "./store.toml");
 
     write_toml(&path, config).unwrap();
 }
