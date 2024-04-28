@@ -38,6 +38,11 @@ $ git clone https://github.com/9min-packup/misskey-emojibot-r.git
 ```bash
 $ cd misskey-emojibot-r
 ```
+config ディレクトリを作成します。
+```bash
+$ mkdir config
+```
+
 以下のファイルを `.example` ディレクトリからコピーします。
 ```bash
 $ cp .example/.env ./
